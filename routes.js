@@ -9,9 +9,13 @@ function isNotExisting(res){
 module.exports = {
     "/": (req, res)=>{
         res.writeHead(200, {"Content-type": "text/html"});
-        fs.createReadStream('index.html').pipe(res);
+        fs.createReadStream('./public/index.html').pipe(res);
     },
-    "/user": (req, res)=>{
+    "/hello": (req, res)=>{
+        res.writeHead(200, {"Content-type": "text/html"});
+        fs.createReadStream('./public/hello.html').pipe(res);
+    }
+    /**"/user": (req, res)=>{
         res.writeHead(200, {"Content-type": "text/html"});
         res.end('users');
     },
@@ -42,7 +46,6 @@ module.exports = {
         }
         isNotExisting(res);
     },
-
     "/rename": (req, res)=>{
         if(fs.existsSync('testfile.txt')){
             fs.rename('testfile.txt', 'renamedfile.txt', (err)=>{
@@ -64,6 +67,5 @@ module.exports = {
         }
         res.writeHead(404);
         res.end('File not found');
-        
-    }
+    } */
 }
