@@ -1,11 +1,7 @@
 
 const fs = require('fs');
-function isNotExisting(res){    
-    res.writeHead(500);
-    res.end("File doesn't exist", ()=>{       
-        console.log("File doesn't exist");
-    });
-}
+
+// Routing are written here
 module.exports = {
     "/": (req, res)=>{
         res.writeHead(200, {"Content-type": "text/html"});
@@ -15,7 +11,16 @@ module.exports = {
         res.writeHead(200, {"Content-type": "text/html"});
         fs.createReadStream('./public/hello.html').pipe(res);
     }
-    /**"/user": (req, res)=>{
+}
+
+/**
+function isNotExisting(res){    
+    res.writeHead(500);
+    res.end("File doesn't exist", ()=>{       
+        console.log("File doesn't exist");
+    });
+}
+/**"/user": (req, res)=>{
         res.writeHead(200, {"Content-type": "text/html"});
         res.end('users');
     },
@@ -67,5 +72,4 @@ module.exports = {
         }
         res.writeHead(404);
         res.end('File not found');
-    } */
-}
+    }  */
