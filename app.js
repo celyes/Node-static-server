@@ -5,7 +5,7 @@ const routes = require('./routes');
 let port = 3000;
 function send404Response(response){
     response.writeHead(404, {"Content-Type": "text/html"});
-    fs.createReadStream("404.html").pipe(response);
+    fs.createReadStream("./public/404.html").pipe(response);
 }
 function hasStarted(port){
     console.info('Server started at http://localhost:' + port);
